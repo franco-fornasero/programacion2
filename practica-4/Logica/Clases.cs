@@ -74,24 +74,19 @@ namespace Logica
             return sumaPares * restaImares;
         }
     
-        /*public static DateTime ConvertirString(this string cadena)
+        public static DateTime ConvertirString(this string cadena)
         {
-            string[] valores = cadena.Split('/');
-            List<int> valoresInt = new List<int>();
             int error = 0;                                    
             try
             {
-                foreach (var item in valores)
-                {
-                    valoresInt.Add(Convert.ToInt32(item));
-                }
 
-                DateTime fecha = new DateTime(valoresInt[0], valoresInt[1], valoresInt[2], valoresInt[3], valoresInt[4], valoresInt[5]);
+                DateTime fecha = DateTime.Parse(cadena);
                 return fecha;
             }
             catch (Exception e)
             {
                 error = 1;
+                return DateTime.MinValue;
             }
             finally
             {
@@ -100,8 +95,7 @@ namespace Logica
                     Console.WriteLine("Se produjo un error");
                     Console.ReadLine();
                 }
-            }*/
-
+            }
            
 
         }
