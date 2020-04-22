@@ -124,6 +124,42 @@ namespace Logica
         }
     }
 
+    public class Cliente
+    {
+        string Nombre;
+        int cuit;
+        public decimal saldo;
+
+        public Cliente(string Nombre, int cuit, decimal saldo)
+        {
+            this.Nombre = Nombre;
+            this.cuit = cuit;
+            this.saldo = saldo;
+        }
+
+        public static Cliente operator -(Cliente cliente1, Cliente cliente2)
+        {
+            if (cliente1.cuit == cliente2.cuit)
+            {
+                Cliente clienteNuevo = new Cliente(cliente1.Nombre, cliente1.cuit, cliente1.saldo - cliente2.saldo);
+                return clienteNuevo;
+            }
+            else
+            {
+                if (cliente1.saldo < cliente2.saldo)
+                {
+                    return cliente1;
+                }
+                else
+                {
+                    return cliente2;
+                }
+            }
+        }
+
+        
+    }
+
 }
 
 
