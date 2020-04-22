@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    
-    public sealed class Frase
+
+    //clase auxiliar para ejercicio 1
+    public sealed class Frase 
     {
         public string frase { get; set; }
     }
-    
-    
+
+
     public static class Extension
     {
-        public static int cantidadDePalabras(this Frase palabras)
+        // ejercicio 1
+        public static int cantidadDePalabras(this Frase palabras) 
         {
             string[] Palabras = palabras.frase.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' });
             int cantidad = Palabras.Length;
             return cantidad;
-        }
+        } 
 
+        // ejercicio 2
         public static int cantidadDePalabras(this Frase palabras, char caracter)
         {
             string[] Palabras = palabras.frase.Split(caracter);
@@ -30,6 +33,7 @@ namespace Logica
             return cantidad;
         }
 
+        // ejercicio 3
         public static decimal calcularDifFechaSeg(this DateTime fecha1, DateTime fecha2)
         {
             int band = DateTime.Compare(fecha1, fecha2);
@@ -47,6 +51,7 @@ namespace Logica
             return totalSeg / 60;
         }
 
+        // ejercicio 4
         public static decimal calcularPromedio(this List<int> enteros)
         {
             int suma = 0;
@@ -54,16 +59,17 @@ namespace Logica
             {
                 suma = suma + item;
             }
-            return suma/enteros.Count();
+            return suma / enteros.Count();
         }
-    
+
+        // ejercicio 5
         public static int Resultado(this List<int> Lista)
         {
             int sumaPares = 0;
             int restaImares = 0;
             foreach (var item in Lista)
             {
-                if (item%2 == 0)
+                if (item % 2 == 0)
                 {
                     sumaPares = sumaPares + item;
                 }
@@ -74,10 +80,11 @@ namespace Logica
             }
             return sumaPares * restaImares;
         }
-    
+
+        // ejercicio 6
         public static DateTime ConvertirString(this string cadena)
         {
-            int error = 0;                                    
+            int error = 0;
             try
             {
 
@@ -99,6 +106,7 @@ namespace Logica
             }
         }
 
+        // ejercicio 7
         public static string InvertirString(this string cadena)
         {
             char[] cadenaInvertida = cadena.ToCharArray();
@@ -106,6 +114,7 @@ namespace Logica
             return new string(cadenaInvertida);
         }
 
+        // ejercicio 8
         public static string UnirCadenas(this List<string> lista, char caracter)
         {
             string nuevaCadena = "";
@@ -113,17 +122,25 @@ namespace Logica
             {
                 nuevaCadena = nuevaCadena + item + caracter;
             }
-            return nuevaCadena.Remove(nuevaCadena.Length - 1, 1); 
+            return nuevaCadena.Remove(nuevaCadena.Length - 1, 1);
         }
-    
+
+        // ejercicio 9
         public static bool ValidarMail(this string mail)
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(mail);
             return match.Success;
         }
+
+        // ejercicio 12
+        public static int RestarEnteros(this int valor1, int valor2)
+        {
+            return valor1 - valor2;
+        }
     }
 
+    // ejercicio 10
     public class Cliente
     {
         string Nombre;
@@ -157,9 +174,22 @@ namespace Logica
             }
         }
 
-        
     }
 
+    // ejercicio 11
+    public static class ConversorTemp
+    {
+        public static float FaC(float TempEnF)
+        {
+            return TempEnF / 2.12f;
+        }
+        public static float CaF(float TempEnC)
+        {
+            return TempEnC * 2.12f;
+        }
+
+    }
+   
 }
 
 
