@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Logica
@@ -96,9 +97,33 @@ namespace Logica
                     Console.ReadLine();
                 }
             }
-           
+        }
 
+        public static string InvertirString(this string cadena)
+        {
+            char[] cadenaInvertida = cadena.ToCharArray();
+            Array.Reverse(cadenaInvertida);
+            return new string(cadenaInvertida);
+        }
+
+        public static string UnirCadenas(this List<string> lista, char caracter)
+        {
+            string nuevaCadena = "";
+            foreach (var item in lista)
+            {
+                nuevaCadena = nuevaCadena + item + caracter;
+            }
+            return nuevaCadena.Remove(nuevaCadena.Length - 1, 1); 
+        }
+    
+        public static bool ValidarMail(this string mail)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(mail);
+            return match.Success;
         }
     }
 
 }
+
+
