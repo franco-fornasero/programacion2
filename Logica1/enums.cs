@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Logica1;
 
-namespace Practica_Clase_7
+namespace Logica1
 {
-    class Program
+    public enum CapacidadMemoria
     {
-        static void Main(string[] args)
-        {
-        }
+        Memoria2GB,
+        Memoria4GB,
+        Memoria8GB,
+        Memoria16GB
     }
 }
