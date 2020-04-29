@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logica1
 {
-    class Computadora : Producto
+    public class Computadora : Producto
     {
         private string descripcionProcesador;
         private CapacidadMemoria cantidadRam;

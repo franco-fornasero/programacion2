@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logica1
 {
-    class Monitor : Producto
+    public class Monitor : Producto
     {
         private int anioFabricacion;
         private bool esNuevo;
